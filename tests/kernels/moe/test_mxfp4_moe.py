@@ -17,7 +17,7 @@ QUARK_MXFP4_AVAILABLE = importlib.util.find_spec(
         importlib.metadata.version("amd-quark")) >= version.parse('0.8.99')
 
 TRTLLM_GEN_MXFP4_AVAILABLE = current_platform.is_cuda(
-) and current_platform.is_device_capability(100)
+) and current_platform.has_device_capability(100)
 
 if TRTLLM_GEN_MXFP4_AVAILABLE:
     from flashinfer import (fp4_quantize, mxfp8_quantize,

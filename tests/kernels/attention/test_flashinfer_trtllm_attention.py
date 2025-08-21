@@ -8,7 +8,7 @@ import torch
 
 from vllm.platforms import current_platform
 
-if not current_platform.is_device_capability(100):
+if not current_platform.has_device_capability(100):
     pytest.skip("This TRTLLM kernel requires NVIDIA Blackwell.",
                 allow_module_level=True)
 

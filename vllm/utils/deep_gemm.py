@@ -25,8 +25,8 @@ def is_deep_gemm_supported() -> bool:
     Currently, only Hopper and Blackwell GPUs are supported.
     """
     is_supported_arch = current_platform.is_cuda() and (
-        current_platform.is_device_capability(90)
-        or current_platform.is_device_capability(100))
+        current_platform.has_device_capability(90)
+        or current_platform.has_device_capability(100))
     return has_deep_gemm() and is_supported_arch
 
 
