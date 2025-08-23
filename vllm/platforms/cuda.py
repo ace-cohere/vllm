@@ -491,7 +491,7 @@ class CudaPlatformBase(Platform):
             # Default to CutlassMLA for blackwell,
             # FlashMLA otherwise
             if attention_backend is None:
-                if cls.is_device_capability(100):
+                if cls.has_device_capability(100):
                     attention_backend = "CUTLASS_MLA"
                 else:
                     attention_backend = "FLASHMLA"
@@ -507,7 +507,7 @@ class CudaPlatformBase(Platform):
                 attention_backend = "FLASH_ATTN_VLLM_V1"
 
             # All Blackwell backends support fp8
-            if cls.is_device_capability(100):
+            if cls.has_device_capability(100):
                 supported = True
             elif attention_backend == "FLASH_ATTN_VLLM_V1":
                 if fp8_attention:
