@@ -782,7 +782,6 @@ define_gpu_extension_target(
 # driver API. This causes problems when linking with earlier versions of CUDA.
 # Setting this variable sidesteps the issue by calling the driver directly.
 target_compile_definitions(_C PRIVATE CUTLASS_ENABLE_DIRECT_CUDA_DRIVER_CALL=1)
-target_compile_definitions(_C PRIVATE CUTLASS_DEBUG_TRACE_LEVEL=1)
 
 #
 # _moe_C extension
